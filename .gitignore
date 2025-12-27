@@ -43,11 +43,6 @@ yarn-error.log
 
 # fastlane
 #
-# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
-# screenshots whenever they are needed.
-# For more information about the recommended setup visit:
-# https://docs.fastlane.tools/best-practices/source-control/
-
 **/fastlane/report.xml
 **/fastlane/Preview.html
 **/fastlane/screenshots
@@ -73,3 +68,49 @@ yarn-error.log
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# iOS extra
+ios/DerivedData/
+ios/build/
+*.xcworkspace
+*.gemspec
+*.lock
+
+# Android extra
+android/.gradle/
+android/app/build/
+android/captures/
+*.apk
+*.aar
+
+# TypeScript
+*.tsbuildinfo
+
+# Watchman/Metro cache
+.watchmanconfig
+.packager
+.cache/
+expo-env.json
+.expo/
+.expo-shared/
+
+# Logs
+*.log
+yarn-debug.log*
+npm-debug.log*
+pnpm-debug.log*
+
+# Env files (Recommended to keep secrets out of repo)
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+sublime-project
+sublime-workspace
+
+# others
+tmp/
+.temp/
+*.tmp
