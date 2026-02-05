@@ -1,16 +1,46 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { useHomeStyles } from '../../theme/useHomeStyles';
 
-const HomeScreen = () => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Home Screen</Text>
-    </View>
-  );
+type HomeScreenProps = {
+  navigation: NativeStackNavigationProp<any>;
 };
 
-const styles = StyleSheet.create({
-  container: { flex: 1, alignItems: 'center', justifyContent: 'center' },
-  title: { fontSize: 22, fontWeight: '600' },
-});
+export function HomeScreen({ navigation }: Readonly<HomeScreenProps>) {
+  const styles = useHomeStyles();
 
-export { HomeScreen };
+  return (
+    <View style={styles.container}>
+      {/* Header */}
+      <View style={styles.header}>
+        <Text style={styles.title}>SpeakXChange</Text>
+        <Text style={styles.subtitle}>
+          Real-time multilingual conversations
+        </Text>
+      </View>
+
+      {/* Start Call */}
+      <TouchableOpacity
+        style={styles.primaryButton}
+        onPress={() => navigation.navigate('Call')}
+      >
+        <Text style={styles.primaryButtonText}>Start a Call</Text>
+      </TouchableOpacity>
+
+      {/* Cards */}
+      <TouchableOpacity
+        style={styles.card}
+        onPress={() => navigation.navigate('CallHistory')}
+      >
+        <Text style={styles.cardText}>📞 Call History</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.card}
+        onPress={() => navigation.navigate('Profile')}
+      >
+        <Text style={styles.cardText}>👤 Profile & Settings</Text>
+      </TouchableOpacity>
+    </View>
+  );
+}
